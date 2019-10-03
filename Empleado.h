@@ -1,8 +1,10 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include<stdio.h>
+#include<string.h>
 #include "Tienda.h"
 #include "Departamento.h"
+#include "Articulo.h"
 typedef struct{
     char *nombre;
     char *apellido;
@@ -13,16 +15,15 @@ typedef struct{
 }Empleado;
 
 Empleado crearEmpleado();
-Articulo crearArticulo();
-Departamento crearDepartamento();
-void iniciarSesion();
-void venderArt();
-void surtirArt();
-void darAltaDepto();
-void darBajaDepto();
-void addArticulo();
-void removeArticulo();
-void modificarInfoEmp();
+
+void iniciarSesion(char *user, char *passwd);
+void venderArt(Articulo art);
+void surtirArt(Articulo art);
+void darAltaDepto(Departamento depto);
+void darBajaDepto(Departamento depto);
+void addArticulo(Articulo a, Departamento d);
+void removeArticulo(Articulo a);
+void modificarInfoEmp(Empleado emp);
 
 Empleado crearEmpleado()
 {
@@ -53,5 +54,22 @@ Empleado crearEmpleado()
     empleado.rango=range;
     return empleado;
 }
+
+
+
+void addArticulo(Articulo a, Departamento d)
+{
+    Articulo *ap_a;
+    Departamento *ap_depto;
+
+
+    ap_depto=&d;
+    a=crearArticulo();
+    ap_a=&a;
+    strc
+    ap_depto->producto=ap_a;
+
+}
+
 
 #endif // EMPLEADO_H
