@@ -101,7 +101,30 @@ int main()
 				}
 				else
 				{
-					//Aqui va el menu de empleados de ventas
+					if(BUSQUEDA(PRIMEROC)==1)
+					{
+						//Iniciado sesión
+						do
+						{
+							MENUC ();
+							scanf("%i",&AC);
+							switch(AC)
+							{
+								case 1://cambiar producto
+								break;
+								case 2:
+								break;
+								default:
+								printf("\nRespuesta invalida\n");
+								getchar();
+								break;
+							}
+						}while(AC!=2);
+						
+					}
+					else
+					{
+					}
 				}
 			break;
 		    case 3:
@@ -336,16 +359,26 @@ int BUSQUEDA (EMP *PRIM)
 {
 	char USU[11];
 	char CNT[11];
-	WALKER=PRIM;
 	int i=0;
+	int p=0;
 	do
 	{
 	printf("\nIniciar sesion\n\n");	
 	printf("USUARIO: ");
 	fflush(stdin);
 	gets(USU);
+	WALKER=PRIM;
+	p=0;
 		do
 		{
+			if(p==0)
+			{
+				p++;
+			}
+			else
+			{
+				WALKER=WALKER->siguiente;
+		    }
 			if(strcmp(WALKER->usuario,USU)==0)
 			{
 				
@@ -365,6 +398,7 @@ int BUSQUEDA (EMP *PRIM)
 			{
 				
 			}
+			
 		}while(WALKER->siguiente!=NULL);
 		printf("Contraseña o usuario incorrectos");
 		i++;
@@ -404,6 +438,7 @@ void MENUV ()
 int INCINERAR(EMP *PRIM, EMP *LAST, int e)
 {
 	int i=0;
+	int p=0;
 	char USU[11];
 	if(e==0)
 	{
@@ -428,9 +463,18 @@ int INCINERAR(EMP *PRIM, EMP *LAST, int e)
 		  		printf("USUARIO A ELIMINAR: ");
 		  		fflush(stdin);
 		  		gets(USU);
+		  		p=0;
+		  		WALKER=PRIM;
 			do
 			{
-				
+				if(p==0)
+				{
+					p++;
+				}
+				else
+				{
+					WALKER=WALKER->siguiente;
+				}
 				if(strcmp(WALKER->usuario,USU)==0)
 				{
 						if(WALKER->anterior==NULL)
