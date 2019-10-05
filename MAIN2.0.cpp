@@ -487,25 +487,25 @@ int INCINERAR(EMP *PRIM, EMP *LAST, int e)
 		  		gets(USU);
 		  		p=0;
 		  		WALKER=PRIM;
-			do
-			{
-				if(p==0)
-				{
+				do
+				 {
+				  if(p==0)
+				   {
 					p++;
-				}
-				else
-				{
+				   }
+				   else
+				   {
 					WALKER=WALKER->siguiente;
-				}
-				if(strcmp(WALKER->usuario,USU)==0)
-				{
+				   }  
+				   if(strcmp(WALKER->usuario,USU)==0)
+				        {   
 						if(WALKER->anterior==NULL)
 						{
 						 DESTRUCTOR=WALKER;
 						 WALKER=WALKER->siguiente;
 						 PRIM=WALKER;
-						 free(DESTRUCTOR);
 						 WALKER->anterior=NULL;	
+						 free(DESTRUCTOR);
 						}
 						else
 						{
@@ -514,8 +514,9 @@ int INCINERAR(EMP *PRIM, EMP *LAST, int e)
 								DESTRUCTOR=WALKER;
 								WALKER=WALKER->anterior;
 								LAST=WALKER;
-								free(DESTRUCTOR);
 								WALKER->siguiente=NULL;	
+								free(DESTRUCTOR);
+								
 							}
 							else
 							{
@@ -532,7 +533,7 @@ int INCINERAR(EMP *PRIM, EMP *LAST, int e)
 				else
 				{
 				}
-			}while(WALKER->siguiente=NULL);
+			}while(WALKER->siguiente!=NULL);
 			printf("\nNo se encontró el usuario vuelva a intentar\n");
 			i++;
 	       }while(i!=3);
