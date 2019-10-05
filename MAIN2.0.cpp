@@ -207,8 +207,8 @@ int main()
 								printf("Salario: ");
 								fflush(stdin);
 								scanf("%i",&emp->sueldo);
-								printf("\n Por ultimo debes registrar su area de trabajo solo puede ser compra (C) o ventas(V)\n ");
-								printf("Area C para compras V para ventas: ");
+								printf("\n Por ultimo debes registrar su area de trabajo solo puede ser compra (C) o ventas(V) o Admin (A)\n ");
+								printf("Area C para compras V para ventas y A para Admin: ");
 								fflush(stdin);
 								gets(emp->area);
 								if(strcmp(emp->area,"C")==0)
@@ -254,10 +254,32 @@ int main()
 									}
 									else
 									{
-									
+								
+								   if(strcmp(emp->area,"A")==0)
+									{
+									if(ne==0)
+									{
+									emp->anterior=NULL;
+									emp->siguiente=NULL;
+									PRIMERO=emp;
+									ULTIMO=emp;
+									ne++;
+									}
+									else
+									{
+										emp->anterior=ULTIMO;
+										emp->siguiente=NULL;
+										ULTIMO->siguiente=emp;
+										ULTIMO=emp;
+									    ne++;
+									}
+									}
+									else
+									{									
 									printf("\nArea no valida, intenta de nuevo\n");
 									getchar();
 									break;
+									}
 								    }
 								}
 								
